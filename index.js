@@ -11,11 +11,11 @@ function getRepositories() {
   xhr.addEventListener('load', displayRepositories);
   xhr.open("GET", `https://api.github.com/users/${username}/repos`);
   xhr.send()
-  return false;
 }
 
 function displayRepositories() {
   const repos = JSON.parse(this.responseText)
+  console.log(this.responseText)
   const repoList = "<ul>" + repos.map(repo => {
     const dataUsername = 'data-username="' + repo.owner.login + '"'
     const dataRepoName = 'data-repository="' + repo.name + '"'
